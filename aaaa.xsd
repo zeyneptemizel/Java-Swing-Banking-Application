@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ClassDiagram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ClassDiagramComponents">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="Class">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Fields">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                          <xs:element maxOccurs="unbounded" name="Field">
+                            <xs:complexType>
+                              <xs:attribute name="name" type="xs:string" use="required" />
+                              <xs:attribute name="type" type="xs:string" use="required" />
+                              <xs:attribute name="visibility" type="xs:string" use="required" />
+                              <xs:attribute name="isStatic" type="xs:boolean" use="optional" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Constructors">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                          <xs:element name="Constructor">
+                            <xs:complexType>
+                              <xs:sequence minOccurs="0">
+                                <xs:element maxOccurs="unbounded" name="Argument">
+                                  <xs:complexType>
+                                    <xs:attribute name="type" type="xs:string" use="required" />
+                                    <xs:attribute name="name" type="xs:string" use="required" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="visibility" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Methods">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                          <xs:element maxOccurs="unbounded" name="Method">
+                            <xs:complexType>
+                              <xs:sequence minOccurs="0">
+                                <xs:element name="Argument">
+                                  <xs:complexType>
+                                    <xs:attribute name="type" type="xs:string" use="required" />
+                                    <xs:attribute name="name" type="xs:string" use="required" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="name" type="xs:string" use="required" />
+                              <xs:attribute name="returnType" type="xs:string" use="required" />
+                              <xs:attribute name="visibility" type="xs:string" use="required" />
+                              <xs:attribute name="isStatic" type="xs:boolean" use="optional" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="package" type="xs:string" use="required" />
+                  <xs:attribute name="visibility" type="xs:string" use="required" />
+                  <xs:attribute name="xPosition" type="xs:decimal" use="required" />
+                  <xs:attribute name="yPosition" type="xs:decimal" use="required" />
+                  <xs:attribute name="isAbstract" type="xs:boolean" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ClassDiagramRelations">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HasRelation">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="source" type="xs:string" use="required" />
+                  <xs:attribute name="target" type="xs:string" use="required" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="sourceCardinality" type="xs:string" use="required" />
+                  <xs:attribute name="targetCardinality" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="UseRelation">
+                <xs:complexType>
+                  <xs:attribute name="source" type="xs:string" use="required" />
+                  <xs:attribute name="target" type="xs:string" use="required" />
+                  <xs:attribute name="sourceCardinality" type="xs:string" use="required" />
+                  <xs:attribute name="targetCardinality" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="IsRelation">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="source" type="xs:string" use="required" />
+                  <xs:attribute name="target" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
